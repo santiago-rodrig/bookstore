@@ -6,8 +6,8 @@ The frontend for a Bookstore, built using React & Redux.
 
 ## Requirements
 
-- [node]()
-- [yarn]()
+- [node](https://nodejs.org/en/)
+- [yarn](https://yarnpkg.com/getting-started/install)
 
 ## Setup
 
