@@ -15,9 +15,9 @@ const reducer = (() => {
     const books = window.localStorage.getItem('books');
     if (!books) {
       return {
-        1: { category: 'action', title: 'Scooby Doo' },
-        2: { category: 'biography', title: 'The Sons of Dune' },
-        3: { category: 'history', title: 'The Lies of Julia' },
+        1: { category: 'kids', title: 'Scooby Doo' },
+        2: { category: 'sci-fi', title: 'The Sons of Dune' },
+        3: { category: 'action', title: 'The Lies of Julia' },
       };
     }
     return JSON.parse(books);
