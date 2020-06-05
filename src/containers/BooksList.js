@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const booksCollection = books => {
   const result = [];
   Object.keys(books).forEach(k => {
-    result.push({ id: k, ...books[k] });
+    result.push({ id: parseInt(k, 10), ...books[k] });
   });
   return result;
 };
@@ -32,7 +32,7 @@ const Component = ({ books }) => (
 );
 
 Component.propTypes = {
-  books: PropTypes.ObjectOf(PropTypes.object).isRequired,
+  books: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 const BooksList = connect(mapStateToProps, null)(Component);
