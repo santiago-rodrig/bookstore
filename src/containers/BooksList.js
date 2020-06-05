@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const booksCollection = books => {
   const result = [];
   Object.keys(books).forEach(k => {
-    result.push({ id: parseInt(k, 10), ...books[k] });
+    result.push({ id: k, ...books[k] });
   });
   return result;
 };
