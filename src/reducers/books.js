@@ -2,7 +2,14 @@ const reducer = (() => {
   const ADD_BOOK = 'ADD_BOOK';
   const REMOVE_BOOK = 'REMOVE_BOOK';
 
-  let nextId = 4;
+  const findAvailableId = state => {
+    const maxIndex = Math.max(...Object.keys(state));
+    for (let i = 1; i <= maxIndex; i += 1) {
+      if (!state[i]) return i;
+    }
+
+    return maxIndex + 1;
+  };
 
   const initialState = {
     1: { category: 'mistery', title: 'Scooby Doo' },
@@ -14,11 +21,11 @@ const reducer = (() => {
     let newState;
     switch (action.type) {
       case ADD_BOOK:
-        newState = {...state, nextId: action.book };
-        nextId += 1;
+        newState = { ...state };
+        newState[findAvailableId(state)] = action.book;
         return newState;
       case REMOVE_BOOK:
-        newState = {...state};
+        newState = { ...state };
         delete newState[action.id];
         return newState;
       default:
@@ -28,4 +35,3 @@ const reducer = (() => {
 })();
 
 export default reducer;
-

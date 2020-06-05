@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Book from '../components/Book';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { books } = state;
   return { books };
 };
 
-const booksCollection = (books) => {
+const booksCollection = books => {
   const result = [];
   Object.keys(books).forEach(k => {
     result.push({ id: k, ...books[k] });
@@ -15,23 +16,25 @@ const booksCollection = (books) => {
   return result;
 };
 
-let BooksList = ({ books }) => {
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Category</th>
-          <th>Title</th>
-        </tr>
-      </thead>
-      <tbody>
-        {booksCollection(books).map(book => <Book key={book.id} book={book} />)}
-      </tbody>
-    </table>
-  );
+const Component = ({ books }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      {booksCollection(books).map(book => <Book key={book.id} book={book} />)}
+    </tbody>
+  </table>
+);
+
+Component.propTypes = {
+  books: PropTypes.ObjectOf(PropTypes.object).isRequired,
 };
 
-BooksList = connect(mapStateToProps, null)(BooksList);
+const BooksList = connect(mapStateToProps, null)(Component);
 
 export default BooksList;
