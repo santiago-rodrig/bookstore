@@ -9,6 +9,12 @@ html {
   }
 }
 
+select,
+input {
+  border: 1px solid #e8e8e8;
+  padding: 0.35rem;
+}
+
 *::before,
 *,
 *::after {
@@ -18,12 +24,14 @@ html {
 #content {
   border-radius: 4px;
   min-height: 100vh;
+
   @media only screen and (min-width: 768px) {
     width: 700px;
     margin: 4rem auto;
     box-shadow: 0 0 30px 0 rgb(83, 83, 83);
     min-height: auto;
   }
+
   background-color: #fafafa;
 }
 
@@ -33,7 +41,9 @@ html {
   }
 }
 
-h1 { font-family: Montserrat, sans-serif; }
+h1 {
+  font-family: Montserrat, sans-serif;
+}
 
 #page-header {
   display: flex;
@@ -43,12 +53,12 @@ h1 { font-family: Montserrat, sans-serif; }
   justify-content: space-between;
   align-items: center;
 
-  &>div:first-child {
+  & > div:first-child {
     display: flex;
     align-items: center;
   }
 
-  &>div:last-child {
+  & > div:last-child {
     border-radius: 50%;
     padding: 0.5rem;
     border: 1px solid #e8e8e8;
@@ -75,11 +85,6 @@ ul {
   }
 }
 
-select, input {
-  border: 1px solid #e8e8e8;
-  padding: 0.35rem;
-}
-
 #page-nav {
   display: flex;
 
@@ -96,7 +101,7 @@ select, input {
     }
 
     &.disabled {
-      color:#b5b5b5;
+      color: #b5b5b5;
 
       &:hover {
         cursor: not-allowed;
@@ -124,12 +129,14 @@ select, input {
   align-items: center;
   width: max-content;
 
-  &>*:first-child {
+  & > *:first-child {
     margin-right: 2rem;
   }
 }
 
-label, option, input {
+label,
+option,
+input {
   font-family: 'Roboto Slab', serif;
 }
 
@@ -146,7 +153,8 @@ h2 {
   width: 100%;
   margin-top: 2rem;
 
-  td, th {
+  td,
+  th {
     padding: 0.4rem;
   }
 
@@ -185,48 +193,49 @@ h2 {
   padding-bottom: 2.5rem;
   width: max-content;
 
-  &>*:first-child {
+  & > *:first-child {
     margin-right: 4rem;
   }
-}
 
-#books-form {
-  select, input {
-    margin-left: 1rem;
-  }
-
-  button {
-    background-color: #0290ff;
-    color: white;
-    font-family: 'Roboto Slab', serif;
-    font-weight: bold;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 3px;
-  }
-
-  label {
-    &:not(&:last-child) {
-      margin-bottom: 1rem;
+  #books-form {
+    select,
+    input {
+      margin-left: 1rem;
     }
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    button {
+      background-color: #0290ff;
+      color: white;
+      font-family: 'Roboto Slab', serif;
+      font-weight: bold;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 3px;
+    }
 
-    * {
-      &:first-child {
-        flex-grow: 1;
+    label {
+      &:not(&:last-child) {
+        margin-bottom: 1rem;
       }
 
-      &:last-child {
-        flex-grow: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      * {
+        &:first-child {
+          flex-grow: 1;
+        }
+
+        &:last-child {
+          flex-grow: 2;
+        }
       }
     }
-  }
 
-  .field:last-child {
-    display: flex;
-    justify-content: flex-end;
+    .field:last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
