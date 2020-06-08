@@ -1,5 +1,7 @@
 # Bookstore
 
+![gif demo](./doc/demo.gif)
+
 [live demo](https://srodrig-bookstore.herokuapp.com)
 
 The frontend for a Bookstore, built using React & Redux.
