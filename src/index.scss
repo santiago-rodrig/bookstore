@@ -11,3 +11,18 @@ html {
 }
 
 h1 { font-family: Montserrat, sans-serif; }
+
+// body { margin: 0; }
+
+#page-header {
+  display: flex;
+  background: white;
+  border-bottom: solid 3px #e8e8e8;
+  padding: 0.8rem 4rem;
+}
+
+.panel-bg {
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
