@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@300;700&display=swap');
 
 html {
   box-sizing: border-box;
+  font-size: 8px;
 }
 
 *::before,
@@ -11,15 +12,19 @@ html {
 }
 
 #content {
-  max-width: 1200px;
-  margin: 4rem auto;
   border-radius: 4px;
-  box-shadow: 10px 10px 30px 0 rgb(83, 83, 83);
+  @media only screen and (min-width: 1300px) {
+    width: 1200px;
+    margin: 4rem auto;
+    box-shadow: 10px 10px 30px 0 rgb(83, 83, 83);
+  }
   background-color: #fafafa;
 }
 
-body {
-  background-color: #f5f6fa;
+@media only screen and (min-width: 1300px) {
+  body {
+    background-color: #f5f6fa;
+  }
 }
 
 h1 { font-family: Montserrat, sans-serif; }
@@ -58,6 +63,13 @@ ul {
   padding-left: 0;
 }
 
+#filter-form {
+  select {
+    margin-left: 0.5rem;
+    border: 1px solid #e8e8e8;
+  }
+}
+
 #page-nav {
   display: flex;
 
@@ -81,4 +93,37 @@ ul {
       }
     }
   }
+}
+
+#books-container {
+  padding: 3rem;
+}
+
+.panel {
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  padding: 1rem 2rem;
+}
+
+#filter-container {
+  display: flex;
+  align-items: center;
+  width: max-content;
+
+  &>*:first-child {
+    margin-right: 2rem;
+  }
+}
+
+label, option, input {
+  font-family: 'Roboto Slab', serif;
+}
+
+label {
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
 }

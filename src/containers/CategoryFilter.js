@@ -24,14 +24,12 @@ const Component = ({ changeFilter }) => {
     changeFilter(e.target.value);
   };
   return (
-    <form id="filter-form">
-      <fieldset>
-        <legend>
-          Filter details
-        </legend>
+    <div className="panel" id="filter-container">
+      <h2>Choose a filter</h2>
+      <form id="filter-form">
         <div className="field">
           <label htmlFor="filter">
-            Choose a filter
+            Filter
             <select
               id="filter"
               name="filter"
@@ -44,8 +42,8 @@ const Component = ({ changeFilter }) => {
             </select>
           </label>
         </div>
-      </fieldset>
-    </form>
+      </form>
+    </div>
   );
 };
 Component.propTypes = {

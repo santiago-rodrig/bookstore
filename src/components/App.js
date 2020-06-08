@@ -7,7 +7,7 @@ function App() {
   return (
     <div id="content">
       <Header title="Bookstore CMS" color="#0290ff" />
-      <div className="panel-bg">
+      <div id="books-container">
         <BooksList />
         <BooksForm />
       </div>
