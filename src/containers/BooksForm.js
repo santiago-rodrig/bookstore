@@ -39,9 +39,9 @@ const Component = ({ addBook }) => {
     e.target.elements.category.value = '';
   };
   return (
-    <form id="books-form" onSubmit={handleSubmit}>
-      <fieldset>
-        <legend>Book details</legend>
+    <div id="books-form-container" className="panel">
+      <h2>Add a new book</h2>
+      <form id="books-form" onSubmit={handleSubmit}>
         <div className="field">
           <label htmlFor="category">
             Category
@@ -70,9 +70,11 @@ const Component = ({ addBook }) => {
             />
           </label>
         </div>
-      </fieldset>
-      <button type="submit">Add Book</button>
-    </form>
+        <div className="field">
+          <button type="submit">Add Book</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
