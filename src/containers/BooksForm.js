@@ -16,42 +16,65 @@ const categories = [
 ));
 
 const mapDispatchToProps = dispatch => ({
-  addBook: event => {
-    event.preventDefault();
-    const formElements = event.target.elements;
-    const formCategoryValue = formElements.category.value;
-    const formTitleValue = formElements.title.value;
-    const book = {
-      category: formCategoryValue,
-      title: formTitleValue,
-    };
+  addBook: book => {
     dispatch(addBook(book));
   },
 });
 
-const Component = ({ addBook }) => (
-  <form id="books-form" onSubmit={addBook}>
-    <fieldset>
-      <legend>Book details</legend>
-      <div className="field">
-        <label htmlFor="category">
-          Category
-          <select name="category" id="category" defaultValue="null" required>
-            <option value="null" disabled>Please choose a category</option>
-            {categories}
-          </select>
-        </label>
-      </div>
-      <div className="field">
-        <label htmlFor="title">
-          Title
-          <input type="text" name="title" id="title" placeholder="Best Book" />
-        </label>
-      </div>
-    </fieldset>
-    <button type="submit">Add Book</button>
-  </form>
-);
+const Component = ({ addBook }) => {
+  const [title, setTitle] = React.useState('');
+  const [category, setCategory] = React.useState('');
+  const handleInputChange = e => {
+    setTitle(e.target.value);
+  };
+  const handleSelectChange = e => {
+    setCategory(e.target.value);
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    const book = { category, title };
+    addBook(book);
+    setCategory('');
+    setTitle('');
+    e.target.elements.category.value = '';
+  };
+  return (
+    <form id="books-form" onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Book details</legend>
+        <div className="field">
+          <label htmlFor="category">
+            Category
+            <select
+              name="category"
+              id="category"
+              defaultValue=""
+              required
+              onChange={handleSelectChange}
+            >
+              <option value="" disabled>Please choose a category</option>
+              {categories}
+            </select>
+          </label>
+        </div>
+        <div className="field">
+          <label htmlFor="title">
+            Title
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Best Book"
+              value={title}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit">Add Book</button>
+    </form>
+  );
+};
 
 Component.propTypes = {
   addBook: PropTypes.func.isRequired,
