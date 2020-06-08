@@ -33,7 +33,7 @@ const Component = ({ books, filter, removeBook }) => {
   return (
     <>
       <CategoryFilter />
-      <table>
+      <table id="books-table" className="panel">
         <thead>
           <tr>
             <th>ID</th>
