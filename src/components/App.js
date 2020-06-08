@@ -1,13 +1,15 @@
 import React from 'react';
 import BooksForm from '../containers/BooksForm';
 import BooksList from '../containers/BooksList';
+import Header from './Header';
 
 function App() {
   return (
-    <div>
+    <>
+      <Header title="Bookstore CMS" color="#0290ff" />
       <BooksList />
       <BooksForm />
-    </div>
+    </>
   );
 }
 
