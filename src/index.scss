@@ -177,9 +177,11 @@ h2 {
 #books-form-container {
   margin-top: 2rem;
   display: flex;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 
   &>*:first-child {
-    margin-right: 2rem;
+    margin-right: 4rem;
   }
 }
 
