@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Nav from './Nav';
+import UserIcon from './UserIcon';
 
 const Header = ({ title, color }) => (
   <header id="page-header">
-    <h1 style={{ color }}>{title}</h1>
+    <div>
+      <h1 style={{ color }}>{title}</h1>
+      <Nav />
+    </div>
+    <UserIcon className="disabled-icon" icon={<i className="fas fa-user" />} />
   </header>
 );
 

@@ -5,13 +5,13 @@ import Header from './Header';
 
 function App() {
   return (
-    <>
+    <div id="content">
       <Header title="Bookstore CMS" color="#0290ff" />
       <div className="panel-bg">
         <BooksList />
         <BooksForm />
       </div>
-    </>
+    </div>
   );
 }
 
