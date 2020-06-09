@@ -8,6 +8,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeFilter(filter));
   },
 });
+
 const categories = [
   'action',
   'biography',
@@ -19,6 +20,7 @@ const categories = [
 ].map(category => (
   <option key={category} value={category}>{category}</option>
 ));
+
 const Component = ({ changeFilter }) => {
   const handleChange = e => {
     changeFilter(e.target.value);
@@ -48,8 +50,11 @@ const Component = ({ changeFilter }) => {
     </form>
   );
 };
+
 Component.propTypes = {
   changeFilter: PropTypes.func.isRequired,
 };
+
 const CategoryFilter = connect(null, mapDispatchToProps)(Component);
+
 export default CategoryFilter;
