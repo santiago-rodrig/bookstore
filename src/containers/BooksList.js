@@ -2,37 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook } from '../actions';
-import CategoryFilter from './CategoryFilter';
+import { removeBook, changeFilter } from '../actions';
+import CategoryFilter from '../components/CategoryFilter';
 
 const mapStateToProps = state => {
   const { books, filter } = state;
+
   return { books, filter };
 };
 
-const booksCollection = books => {
-  const result = [];
-  Object.keys(books).forEach(k => {
-    result.push({ id: k, ...books[k] });
-  });
-  return result;
-};
+const booksCollection = books => (
+  Object.keys(books).map(k => { id: k, ...books[k] });
+);
 
 const mapDispatchToProps = dispatch => ({
-  removeBook: id => {
-    dispatch(removeBook(id));
-  },
+  removeBook: id => dispatch(removeBook(id)),
+  changeFilter: filter => dispatch(changeFilter(filter)),
 });
 
-const Component = ({ books, filter, removeBook }) => {
+const Component = ({ books, filter, removeBook, changeFilter }) => {
   const filteredBooks = () => {
     const booksInArray = booksCollection(books);
+
     if (filter === 'all') return booksInArray;
+
     return booksInArray.filter(book => book.category === filter);
   };
+
+  const handleFilterChange = e => changeFilter(e.target.value);
+
   return (
     <>
-      <CategoryFilter />
+      <CategoryFilter handleFilterChange={handleFilterChange} />
       <table>
         <thead>
           <tr>
