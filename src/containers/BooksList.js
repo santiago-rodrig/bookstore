@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 };
 
 const booksCollection = books => (
-  Object.keys(books).map(k => { id: k, ...books[k] });
+  Object.keys(books).map(k => ({ id: k, ...books[k] }))
 );
 
 const mapDispatchToProps = dispatch => ({

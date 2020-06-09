@@ -42,4 +42,4 @@ Component.propTypes = {
   handleFilterChange: PropTypes.func.isRequired,
 };
 
-export default CategoryFilter;
+export default Component;
