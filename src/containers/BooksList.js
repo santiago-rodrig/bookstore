@@ -20,7 +20,12 @@ const mapDispatchToProps = dispatch => ({
   changeFilter: filter => dispatch(changeFilter(filter)),
 });
 
-const Component = ({ books, filter, removeBook, changeFilter }) => {
+const Component = ({
+  books,
+  filter,
+  removeBook,
+  changeFilter,
+}) => {
   const filteredBooks = () => {
     const booksInArray = booksCollection(books);
 
@@ -57,6 +62,7 @@ Component.propTypes = {
   books: PropTypes.objectOf(PropTypes.object).isRequired,
   removeBook: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 const BooksList = connect(mapStateToProps, mapDispatchToProps)(Component);
