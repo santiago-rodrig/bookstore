@@ -24,7 +24,12 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const Component = ({ books, filter, removeBook, changeFilter }) => {
+const Component = ({
+  books,
+  filter,
+  removeBook,
+  changeFilter,
+}) => {
   const handleFilterChange = e => changeFilter(e.target.value);
 
   const filteredBooks = () => {
