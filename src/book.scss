@@ -1,0 +1,22 @@
+#books {
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+
+.book {
+  margin: 0 auto;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  position: relative;
+  width: 1200px;
+  height: 170px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  padding-top: 32px;
+}

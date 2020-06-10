@@ -43,21 +43,11 @@ const Component = ({
   return (
     <>
       <CategoryFilter handleFilterChange={handleFilterChange} />
-      <table id="books-table" className="panel">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Category</th>
-            <th>Title</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredBooks().map(
-            book => <Book key={book.id} book={book} removeBook={removeBook} />,
-          )}
-        </tbody>
-      </table>
+      <div id="books">
+        {filteredBooks().map(
+          book => <Book key={book.id} book={book} removeBook={removeBook} />,
+        )}
+      </div>
     </>
   );
 };

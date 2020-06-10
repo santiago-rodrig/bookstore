@@ -14,15 +14,15 @@ const categories = [
 ));
 
 const Component = ({ handleFilterChange }) => (
-  <div className="panel" id="filter-container">
+  <div id="filter">
     <h2>Choose a filter</h2>
-    <form id="filter-form">
+    <form>
       <div className="field">
-        <label htmlFor="filter">
+        <label htmlFor="filter-category">
           Filter
           <select
-            id="filter"
-            name="filter"
+            id="filter-category"
+            name="filter-category"
             defaultValue="all"
             required
             onChange={handleFilterChange}
