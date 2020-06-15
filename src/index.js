@@ -1,17 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all';
+import 'normalize.css';
+import App from './components/App';
+import reducer from './reducers';
+import './index.scss';
+import './content.scss';
+import './header.scss';
+import './filter.scss';
+import './book.scss';
+import './books_form.scss';
+import './book_details.scss';
+import './book_progress.scss';
+import './book_state.scss';
+
+const store = createStore(reducer);
+
+store.subscribe(() => {
+  window.localStorage.setItem('books', JSON.stringify(store.getState().books));
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
