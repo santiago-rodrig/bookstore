@@ -16,8 +16,12 @@ const booksCollection = books => (
 );
 
 const mapDispatchToProps = dispatch => ({
-  removeBook: id => dispatch(removeBook(id)),
-  changeFilter: filter => dispatch(changeFilter(filter)),
+  removeBook: id => {
+    dispatch(removeBook(id));
+  },
+  changeFilter: filter => {
+    dispatch(changeFilter(filter));
+  },
 });
 
 const Component = ({
@@ -26,6 +30,8 @@ const Component = ({
   removeBook,
   changeFilter,
 }) => {
+  const handleFilterChange = e => changeFilter(e.target.value);
+
   const filteredBooks = () => {
     const booksInArray = booksCollection(books);
 
@@ -34,26 +40,14 @@ const Component = ({
     return booksInArray.filter(book => book.category === filter);
   };
 
-  const handleFilterChange = e => changeFilter(e.target.value);
-
   return (
     <>
       <CategoryFilter handleFilterChange={handleFilterChange} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Category</th>
-            <th>Title</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredBooks().map(
-            book => <Book key={book.id} book={book} removeBook={removeBook} />,
-          )}
-        </tbody>
-      </table>
+      <div id="books">
+        {filteredBooks().map(
+          book => <Book key={book.id} book={book} removeBook={removeBook} />,
+        )}
+      </div>
     </>
   );
 };

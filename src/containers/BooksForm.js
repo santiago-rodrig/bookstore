@@ -24,12 +24,9 @@ const mapDispatchToProps = dispatch => ({
 const Component = ({ addBook }) => {
   const [title, setTitle] = React.useState('');
   const [category, setCategory] = React.useState('');
-  const handleInputChange = e => {
-    setTitle(e.target.value);
-  };
-  const handleSelectChange = e => {
-    setCategory(e.target.value);
-  };
+  const handleInputChange = e => setTitle(e.target.value);
+  const handleSelectChange = e => setCategory(e.target.value);
+
   const handleSubmit = e => {
     e.preventDefault();
     const book = { category, title };
@@ -38,41 +35,38 @@ const Component = ({ addBook }) => {
     setTitle('');
     e.target.elements.category.value = '';
   };
+
   return (
-    <form id="books-form" onSubmit={handleSubmit}>
-      <fieldset>
-        <legend>Book details</legend>
+    <div id="books-form-container">
+      <h2>add a new book</h2>
+      <form onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="category">
-            Category
-            <select
-              name="category"
-              id="category"
-              defaultValue=""
-              required
-              onChange={handleSelectChange}
-            >
-              <option value="" disabled>Please choose a category</option>
-              {categories}
-            </select>
-          </label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Book title"
+            value={title}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="field">
-          <label htmlFor="title">
-            Title
-            <input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Best Book"
-              value={title}
-              onChange={handleInputChange}
-            />
-          </label>
+          <select
+            name="category"
+            id="category"
+            defaultValue=""
+            required
+            onChange={handleSelectChange}
+          >
+            <option value="" disabled>Category</option>
+            {categories}
+          </select>
         </div>
-      </fieldset>
-      <button type="submit">Add Book</button>
-    </form>
+        <div className="field">
+          <button type="submit">Add Book</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

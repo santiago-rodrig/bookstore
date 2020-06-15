@@ -14,17 +14,15 @@ const categories = [
 ));
 
 const Component = ({ handleFilterChange }) => (
-  <form id="filter-form">
-    <fieldset>
-      <legend>
-        Filter details
-      </legend>
+  <div id="filter">
+    <h2>Choose a filter</h2>
+    <form>
       <div className="field">
-        <label htmlFor="filter">
-          Choose a filter
+        <label htmlFor="filter-category">
+          Filter
           <select
-            id="filter"
-            name="filter"
+            id="filter-category"
+            name="filter-category"
             defaultValue="all"
             required
             onChange={handleFilterChange}
@@ -34,8 +32,8 @@ const Component = ({ handleFilterChange }) => (
           </select>
         </label>
       </div>
-    </fieldset>
-  </form>
+    </form>
+  </div>
 );
 
 Component.propTypes = {
